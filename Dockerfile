@@ -1,12 +1,12 @@
 # Build JRE, which needs to be separated to a more proper base image
-
-#FROM debian:stretch-slim@sha256:72b05ba545dcb4f460cdf76049eebca02c593fece48d59fe3a2bd690a3d62597
 FROM openjdk:8-jdk-slim@sha256:e54d401f6bdd8a00b2d8837038b0a63da2cf527ce52849e351af435d2f650dae
 
 ARG KAFKA_MONITOR_VERSION
 ARG KAFKA_MONITOR_SHA256
 
-ENV KAFKA_MONITOR_REPO=https://github.com/linkedin/kafka-monitor 
+ENV KAFKA_MONITOR_REPO=https://github.com/linkedin/kafka-monitor \
+    KAFKA_MONITOR_VERSION=2.0.1 \
+    KAFKA_MONITOR_SHA256=144777b7b6a2844acb7baf31aaf3aec0ce6c2e4ded91e3ad552c0f3032d60c9a
  
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
